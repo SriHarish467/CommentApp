@@ -6,10 +6,10 @@ ASP.NET Core Web API and Microsoft SQL Server for backend and Angular and Angula
 
 Dependencies
 ------------------
-.Net Core SDK 3.1 and above
-Angular 10 and above
-Angular Material
-Node.js 
+.Net Core SDK 3.1 and above,
+Angular 10 and above,
+Angular Material,
+Node.js,
 Entity Framework core 3.1.0
 
 
