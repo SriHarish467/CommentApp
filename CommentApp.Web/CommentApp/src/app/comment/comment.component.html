@@ -1,0 +1,21 @@
+
+<div class="text-align">
+<p>What would you like to share with world?</p>
+<textarea [(ngModel)]="newComment.commentDescription"></textarea>
+<button class="btn" mat-raised-button color="primary" (click)="onClickSubmit()"
+[disabled]="newComment.commentDescription == null || newComment.commentDescription == ''">Submit</button>
+
+<div class="comment-area">
+    <strong>Comments</strong>
+    <button class="align-right" mat-raised-button color="primary" (click)="onClickFilterCommentsByUser()">Filter</button>
+    <ng-container *ngFor="let comment of commentDetails">
+        <section class="container">
+            <div class="one">{{comment.userAccount.emailId}}</div>
+            <div class="two">{{comment.commentDescription}}</div>
+          </section>
+    </ng-container>
+    <ng-container *ngIf="commentDetails.length ==0">
+        <h3>No Comments</h3>
+    </ng-container>
+</div>
+</div>

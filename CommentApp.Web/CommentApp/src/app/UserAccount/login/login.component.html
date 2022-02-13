@@ -1,0 +1,45 @@
+<mat-card style="border:solid black 1px;" class="example-card">
+    <mat-card-header>
+        <mat-card-title>Sign In</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div>Don't have an account? <a routerLink="/">Sign Up</a>
+        </div>
+        <div *ngIf="displayError" class="alert alert-danger">
+            Invalid Email or Password
+           </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onClickSignIn(loginForm.value)">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="emailId" required>
+            </mat-form-field>
+            <mat-error>
+                <div *ngIf="loginForm.get('emailId').invalid && loginForm.get('emailId').touched">
+                <div class="alert alert-danger" *ngIf="loginForm.get('emailId').errors.required">
+                 <div>Please enter your Email</div>
+                </div>
+                <div class="alert alert-danger" *ngIf="loginForm.get('emailId').errors.emailId">
+                    <div>Enter a vaild Email</div>
+                   </div>
+                </div>
+              </mat-error>
+    
+              <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password" required>
+            </mat-form-field>
+            <mat-error>
+                <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                <div class="alert alert-danger" *ngIf="loginForm.get('password').errors.required && loginForm.get('password').touched">
+                 <div>Please enter your password</div>
+                </div>
+                </div>
+              </mat-error>
+             <div class="text-align"><a routerLink="/forgotpassword">Forgot your password?</a></div>
+            <button class="btn" mat-raised-button color="primary" [disabled]="!loginForm.valid">Sign In</button>
+        </form>
+    </mat-card-content>
+    </mat-card>
+    
+    
+    
