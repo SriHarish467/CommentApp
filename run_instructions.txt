@@ -2,7 +2,7 @@ Project Title:CommentApp
 
 Tech stack used:
 -------------------
-ASP.NET Core Web API and SQL for backend and Angular and Angular Material for front-end.
+ASP.NET Core Web API and Microsoft SQL Server for backend and Angular and Angular Material for front-end.
 
 Dependencies
 ------------------
