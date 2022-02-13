@@ -32,6 +32,12 @@ namespace CommentApp.Controllers
             //Check entity param is valid
             if (ModelState.IsValid)
             {
+                //Check Email Id already exist in Database before creating new user account
+                bool isEmailExist = await service.CheckEmailIdExistAsync(newUserAccount.EmailId);
+                if(isEmailExist)
+                {
+                    return Ok(new { isEmailExist });
+                }
                 var token = await service.CreateNewUserAccountAsync(newUserAccount);
                 return Ok(new { token });
             }

@@ -10,5 +10,6 @@ namespace CommentApp.Service.ServiceInterface
         Task<string> CreateNewUserAccountAsync(NewUserAccountDto newUserAccountDto);
         Task<string> ValidateUserCredentialAsync(LoginDto loginCredentail);
         Task<string> ForgotPasswordAsync(RestUserAccountDto restUserAccountDto);
+        Task<bool> CheckEmailIdExistAsync(string emailId);
     }
 }

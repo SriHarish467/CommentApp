@@ -5,6 +5,9 @@
     <mat-card-content>
         <div>Already have an account? <a routerLink="/login">Sign In</a>
         </div>
+        <div *ngIf="displayError" class="alert alert-danger">
+            Email already exist
+           </div>
         <form [formGroup]="loginForm" (ngSubmit)="onClickSignUp(loginForm.value)">
             <mat-form-field>
                 <mat-label>Email</mat-label>

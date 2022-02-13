@@ -32,7 +32,7 @@ namespace CommentApp.Repository.Repository
         public async Task<List<Comment>> GetCommentDetailsAsync()
         {
             //Take only active comments and include UserAccount entity to get emailId with foreign key relationship 
-            List<Comment> comment = await context.Comment.Where(comment => comment.IsActive == true).Include(x => x.UserAccount).ToListAsync();
+            List<Comment> comment = await context.Comment.Where(comment => comment.IsActive == true).Include(user => user.UserAccount).ToListAsync();
             return comment;
         }
 
@@ -44,7 +44,7 @@ namespace CommentApp.Repository.Repository
         public async Task<List<Comment>> GetCommentDetailsByUserIdAsync(Guid userId)
         {
             //Take comments by specific userId and include UserAccount entity to get emailId with foreign key relationship
-            List<Comment> commentDetail = await context.Comment.Where(comment => comment.UserId == userId).Include(x => x.UserAccount).ToListAsync();
+            List<Comment> commentDetail = await context.Comment.Where(comment => comment.UserId == userId).Include(user => user.UserAccount).ToListAsync();
             return commentDetail;
         }
 

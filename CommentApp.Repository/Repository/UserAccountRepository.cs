@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CommentApp.Repository.Repository
 {
-    public class UserAccountRepository:IUserAccountRepository
+    public class UserAccountRepository : IUserAccountRepository
     {
         #region Members
         private readonly CommentAppContext context;
@@ -56,6 +56,16 @@ namespace CommentApp.Repository.Repository
         {
             return await context.UserAccount.Where(user => user.EmailId == userCredentail.EmailId && user.SecretCode == userCredentail.SecretCode).
                 Select(select => select.Password).SingleOrDefaultAsync();
+        }
+
+        /// <summary>
+        /// CheckExistingEmailIdAsync Method to check Email Id already exist in Database
+        /// </summary>
+        /// <param name="emailId"></param>
+        /// <returns>bool</returns>
+        public async Task<bool> CheckEmailIdExistAsync(string emailId)
+        {
+            return await context.UserAccount.AnyAsync(user => user.EmailId == emailId);
         }
         #endregion
     }

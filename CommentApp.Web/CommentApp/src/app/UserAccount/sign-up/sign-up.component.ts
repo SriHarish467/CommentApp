@@ -12,7 +12,8 @@ import { DataService } from 'src/app/service/data.service';
 export class SignUpComponent implements OnInit {
 
   public loginForm:FormGroup;
-  
+  public displayError:boolean=false;
+
   constructor(private service:DataService,private jwtService:JwtService,private router:Router) { }
 
   ngOnInit(): void {
@@ -27,10 +28,16 @@ export class SignUpComponent implements OnInit {
 
   onClickSignUp(value:any)
   {
+    this.displayError=false;
     let pathUrl="useraccount/createaccount";
-    this.service.createRequest(pathUrl,value).subscribe((result:any)=>{
-      this.jwtService.setToken('token',result.token);
-      this.router.navigateByUrl('/comment');
+    this.service.createRequest(pathUrl,value).subscribe((response:any)=>{
+      if(response?.token){
+       this.jwtService.setToken('token',response.token);
+       this.router.navigateByUrl('/comment');
+      }
+      else{
+       this.displayError=true;
+      }
       });
   }
 

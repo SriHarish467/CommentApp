@@ -73,6 +73,17 @@ namespace CommentApp.Service.Service
             var password = await repository.ForgotPasswordAsync(restUserAccount);
             return password;
         }
+
+        /// <summary>
+        /// CheckEmailIdExistAsync Method to check Email Id already exist in Database
+        /// </summary>
+        /// <param name="emailId"></param>
+        /// <returns>bool</returns>
+        public async Task<bool> CheckEmailIdExistAsync(string emailId)
+        {
+            bool isEmailExist = await repository.CheckEmailIdExistAsync(emailId);
+            return isEmailExist;
+        }
         #endregion
     }
 }

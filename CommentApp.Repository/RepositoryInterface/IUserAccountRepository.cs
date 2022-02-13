@@ -11,5 +11,6 @@ namespace CommentApp.Repository.RepositoryInterface
         Task<Guid> CreateNewUserAccountAsync(UserAccount userAccount);
         Task<Guid?> ValidateUserCredentialAsync(UserAccount userCredentail);
         Task<string> ForgotPasswordAsync(UserAccount userCredentail);
+        Task<bool> CheckEmailIdExistAsync(string emailId);
     }
 }
