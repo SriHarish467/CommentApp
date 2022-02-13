@@ -38,8 +38,10 @@ CREATE TABLE Comment(
 
 Step2: Open CommentApp.Web folder in CMD and run the command npm install
 
-Step3: After npm install code the CommmentApp.Web folder in Visual studio code and run the command npm start
+Step3: After npm install open the CommmentApp.Web folder in Visual studio code and run the command npm start
 
 Step4: Open the CommentApp.sln solution file in Visual studio
 
 Step5: Install .Net Core SDK 3.1 and above in Visual studio
+
+Step6: Right click on the CommentApp and choose Set as Startup Project after that run the IIS Express
